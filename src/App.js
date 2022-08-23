@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -21,13 +21,22 @@ function App() {
     "Whatsapp",
   ];
 
+  useEffect(() => {
+    const results = companies.filter(company => 
+      company.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  }, [searchTerm])
+
   return (
     <div className="container">
       <input value={searchTerm} onChange={handleChange} />
       <div className='data'>
       {
         searchResults.map((company, index) => (
-          <div key={index} className='row'></div>
+          <div key={index} className='row'>
+            {company}
+          </div>
         ))
       }
       </div>
