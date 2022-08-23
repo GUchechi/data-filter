@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
+  const [searchResults, setSearchResults] = useState([])
 
   const handleChange = (e) => {
     const newValue = e.target.value;
@@ -24,7 +25,11 @@ function App() {
     <div className="container">
       <input value={searchTerm} onChange={handleChange} />
       <div className='data'>
-        <div className='row'></div>
+      {
+        searchResults.map((company, index) => (
+          <div key={index} className='row'></div>
+        ))
+      }
       </div>
     </div>
   );
