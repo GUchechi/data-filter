@@ -4,7 +4,9 @@ function App() {
   return (
     <div className="container">
       <input />
-      <div className='data'></div>
+      <div className='data'>
+        <div className='row'></div>
+      </div>
     </div>
   );
 }
